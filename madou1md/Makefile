@@ -12,11 +12,11 @@ CXX=g++
 # Compile only
 CDEFINES = -DBLACKT_ENABLE_LIBPNG
 #CLIBS = -lpng
-CFLAGS = -std=gnu++11 -O2 -Wall -L${LIBMDDIR} -lmd -L${BLACKTDIR} -lblackt -L${KENSDIR} -lkens -lpng
+CFLAGS = -std=gnu++11 -O2 -Wall -L${LIBMDDIR} -lmd -L${BLACKTDIR} -lblackt -L${KENSDIR} -lpng
 CINCLUDES = -I${BLACKTDIR}/src -I${LIBMDDIR}/src -I${KENSDIR}/kens
 CXXFLAGS=$(CFLAGS) $(CDEFINES) $(CINCLUDES) -I$(IDIR)
 
-LIBDEPS := $(LIBMDDIR)/libmd.a $(BLACKTDIR)/libblackt.a $(KENSDIR)/libkens.a
+LIBDEPS := $(LIBMDDIR)/libmd.a $(BLACKTDIR)/libblackt.a
 
 TOOLSRCS := $(wildcard $(SRCDIR)/*.cpp)
 TOOLSINDIR := $(patsubst %.cpp,%,$(TOOLSRCS))
@@ -24,7 +24,7 @@ TOOLS := $(notdir $(TOOLSINDIR))
 
 .SECONDEXPANSION:
 
-all: blackt libmd kens $(TOOLS)
+all: blackt libmd $(TOOLS)
 
 blackt:
 	cd ${BLACKTDIR} && $(MAKE) && cd $(CURDIR)

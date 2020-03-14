@@ -85,6 +85,8 @@ echo "Building font..."
 echo "*******************************************************************************"
 
 mkdir -p out/font
+mkdir -p out/asm
+
 ./fontbuild font/ out/font/
 ./bin2dcb out/font/font.bin > out/asm/font.inc
 ./bin2dcb out/font/chartable.bin > out/asm/chartable.inc

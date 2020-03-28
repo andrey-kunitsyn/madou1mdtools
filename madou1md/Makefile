@@ -40,7 +40,7 @@ $(TOOLS): $(SRCDIR)/$$@.cpp $(LIBDEPS)
 	make libmd
 	$(CXX) $(SRCDIR)/$@.cpp $(OBJ) -o $(notdir $@) $(CXXFLAGS)
 
-.PHONY: blackt libmd kens cleanme clean
+.PHONY: blackt libmd cleanme clean
 
 cleanme:
 	rm -f $(TOOLS)
@@ -50,4 +50,3 @@ clean: cleanme
 #	rm -rf $(ODIR)
 	cd ${BLACKTDIR} && $(MAKE) clean && cd $(CURDIR)
 	cd ${LIBMDDIR} && $(MAKE) clean && cd $(CURDIR)
-	cd ${KENSDIR} && $(MAKE) clean && cd $(CURDIR)
